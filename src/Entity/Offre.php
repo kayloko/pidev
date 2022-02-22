@@ -14,24 +14,29 @@ class Offre
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank(message=" this field is required ")
      */
     private $id;
     /**
      * @ORM\ManyToOne(targetEntity=Abonnement::class, inversedBy="offre")
+     * @Assert\NotBlank(message=" this field is required ")
      */
     private $abonnement;
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank(message=" this field is required ")
      */
     private $duree;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message=" this field is required ")
      */
     private $solde;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message=" this field is required ")
      */
     private $description;
 

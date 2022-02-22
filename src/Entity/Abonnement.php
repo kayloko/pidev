@@ -26,29 +26,32 @@ class Abonnement
 
     /**
      * @ORM\Column(type="date")
+     * @Assert\NotBlank(message=" this field is required ")
      */
     private $date_debut;
 
     /**
      * @ORM\Column(type="date")
-     * @Assert\GreaterThan("today UTC")
+     * @Assert\GreaterThan(value="today UTC", message="invalid date")
      */
     private $date_final;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\GreaterThan("today UTC")
-     * @Assert\Type("Symfony\Component\Mime\Address")
+     * @Assert\NotBlank(message=" this field is required ")
+     * @Assert\Email( message = "The email is not a valid email.")
      */
     private $email;
 
     /**
      * @ORM\Column(type="date")
+     * @Assert\NotBlank(message=" this field is required ")
      */
     private $birthday;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=8)
+     *  @Assert\Length(min="8",max="8",minMessage="champ invalide")
      */
     private $num_tel;
 
