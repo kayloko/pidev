@@ -1,0 +1,18 @@
+                        {{ form_start(form,{'attr':{'novalidate':'novalidate'}}) }}
+                         {{ form_widget(form.email) }}
+                          {% if not form.email.vars.valid %}
+                        <div class="alert alert-danger">
+                        {{ form_errors(form.email) }}
+                        </div>
+                        {% endif %}
+                        {{ form_widget(form.password) }}
+                          {% if not form.password.vars.valid %}
+                        <div class="alert alert-danger">
+                        {{ form_errors(form.password) }}
+                        </div>
+                        {% endif %}
+                        {{ form_widget(form) }}
+                         <button class="btn">{{ button_label|default('Login') }}</button>
+                        {{ form_end(form) }}
+                        <a class="btn-primary" href="{{ path('user_new') }}"> Create Compte </a>
+    <br>
